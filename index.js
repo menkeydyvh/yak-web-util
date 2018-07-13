@@ -2,9 +2,12 @@
  * Created by menkey on 2018/1/25.
  */
 import util from './src/util';
-import http from './src/util/http';
+
+import frameApi from './src/frame/frameApi';
+import vueReceiveParentToMessages from './src/frame/vueReceiveParentToMessages';
 
 export {
   util,
-  http
+  frameApi,
+  vueReceiveParentToMessages
 }
