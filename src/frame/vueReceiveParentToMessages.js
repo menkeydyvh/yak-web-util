@@ -35,6 +35,7 @@ export default (callback) => {
       }
     }, false);
   } else {
+    util.lockr('uid',1);
     callback && callback();
   }
 };
