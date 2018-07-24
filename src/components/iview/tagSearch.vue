@@ -121,7 +121,7 @@
     </div>
 </template>
 <script>
-  import {vueExpand, util} from 'yak-web-util'
+  import {vueExpand, util} from '../../../index'
   import './tagSearch.less'
 
   /**
