@@ -149,6 +149,9 @@
       isDate: {
         type: Boolean,
         "default": true
+      },
+      dateValue: {
+        type: String,
       }
     },
     watch: {
@@ -168,6 +171,10 @@
       }
     },
     data() {
+      let self = this, dateValue = [];
+      if (self.dateValue) {
+        dateValue = util.getTimePeriodRange(self.dateValue)
+      }
       return {
         status: true,
         keyword: '',
@@ -175,7 +182,7 @@
         valueList: [],
         resultList: [],
         dateList: {
-          value: [],
+          value: dateValue,
           data: [
             {title: '今天', code: 'DAY', checked: false},
             {title: '近一周', code: 'L1W', checked: false},
