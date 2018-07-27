@@ -258,4 +258,13 @@ util.arrayDistinct = function (ary) {
   return Array.from(new Set(ary));
 };
 
+/**
+ * 像素处理
+ * @param num
+ * @returns {Array}
+ */
+util.pixel = function (num) {
+  return num * window.devicePixelRatio;
+};
+
 export default util
