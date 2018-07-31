@@ -169,7 +169,7 @@ util.switchWidthHeight = function (callback) {
  * @param maxDate
  * @returns {[string,string]}
  */
-util.getTimePeriodRange = (period, maxDate) => {
+util.getTimePeriodRange = function (period, maxDate) {
   if (!maxDate) {
     maxDate = new Date();
   } else if (typeof maxDate === 'string') {
@@ -230,7 +230,7 @@ util.getTimePeriodRange = (period, maxDate) => {
  * @param isDecoding 是否解码
  * @returns {string}
  */
-util.base64 = function (content, isDecoding = false) {
+util.base64 = function (content, isDecoding) {
   if (isDecoding) {
     return window.atob && window.atob(content);
   } else {
@@ -242,7 +242,7 @@ util.base64 = function (content, isDecoding = false) {
  * 解析Gql下来的ID
  * @param gqlId
  */
-util.getGqlId = (gqlId) => {
+util.getGqlId = function (gqlId) {
   if (gqlId) {
     return (util.base64(gqlId, true).split(':')[1]).replace(/"/g, '');
   }

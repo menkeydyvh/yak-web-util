@@ -12,7 +12,7 @@ export default {
       data = JSON.stringify(data);
     }
     let parentHost = '';
-    if (location.ancestorOrigins.length) {
+    if (location.ancestorOrigins && location.ancestorOrigins.length) {
       parentHost = location.ancestorOrigins[0];
     }
     if (parentHost) {
@@ -35,12 +35,12 @@ export default {
    * @param url
    * @param state
    */
-  history(url, state = null) {
+  history(url, state) {
     if (url) {
       this.sendMessagesToParent({
         type: 'history',
         data: {
-          state: state,
+          state: state ? state : null,
           title: document.title,
           url: url
         }
