@@ -25,7 +25,7 @@ util.getLocationBarData = function () {
     let strs = str.split("&");
     for (let i = 0; i < strs.length; i++) {
       let item = strs[i].split("=");
-      theRequest[item[0]] = decodeURIComponent(item[1])
+      theRequest[item[0]] = item[1] ? decodeURIComponent(item[1]) : null;
     }
   }
   return theRequest;
