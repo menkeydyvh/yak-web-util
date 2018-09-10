@@ -8,7 +8,7 @@ export default {
     list: Array,
     render: Function,
   },
-  render: (h, ctx) => {
+  render: function (h, ctx) {
     return ctx.props.render(h, ctx.props.list);
   }
 };

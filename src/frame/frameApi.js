@@ -7,7 +7,7 @@ export default {
    * 发送消息给父节点
    * @param data
    */
-  sendMessagesToParent(data) {
+  sendMessagesToParent: function (data) {
     if (typeof data !== 'string') {
       data = JSON.stringify(data);
     }
@@ -24,7 +24,7 @@ export default {
    * window.open 弹窗
    * @param url
    */
-  windowOpen(url) {
+  windowOpen: function (url) {
     let host = process.env.HOST_HTTP;
     host = host ? host : '';
     url && window.open(host + url);
@@ -35,7 +35,7 @@ export default {
    * @param url
    * @param state
    */
-  history(url, state) {
+  history: function (url, state) {
     if (url) {
       this.sendMessagesToParent({
         type: 'history',
@@ -52,7 +52,7 @@ export default {
    * href
    * @param url
    */
-  href(url) {
+  href: function (url) {
     if (url) {
       this.sendMessagesToParent({
         type: 'href',
