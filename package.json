@@ -1,6 +1,6 @@
 {
   "name": "yak-web-util",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "yak web  项目工具类",
   "main": "index.js",
   "scripts": {

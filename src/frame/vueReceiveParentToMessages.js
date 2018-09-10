@@ -1,8 +1,8 @@
 import util from '../util';
 
-export default (callback) => {
+export default function (callback) {
   if (process.env.NODE_ENV === 'production') {
-    window.addEventListener("message", (event) => {
+    window.addEventListener("message", function (event) {
       let json = event.data;
       if (typeof event.data === 'string') {
         json = JSON.parse(event.data);
@@ -36,8 +36,6 @@ export default (callback) => {
       // }
     }, false);
   } else {
-    //测试的时候随便设置的
-    util.lockr('uid', 1);
     callback && callback();
   }
 };
