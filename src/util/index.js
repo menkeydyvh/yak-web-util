@@ -75,7 +75,7 @@ export default {
    */
   phoneValidation: function (value) {
     var zz = /^((13[0-9])|147|(15[0-35-9])|(17[0-9])|180|183|182|(18[5-9]))[0-9]{8}$/;
-    value = util.trim(value);
+    value = this.trim(value);
     return zz.test(value);
   },
 
@@ -86,7 +86,7 @@ export default {
    */
   emailValidation: function (value) {
     var zz = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;
-    value = util.trim(value);
+    value = this.trim(value);
     return zz.test(value);
   },
 
@@ -190,9 +190,9 @@ export default {
     } else if (period === 'ALL') {
       value[0] = '1970-01-01';
     } else if (period === 'L1W') {
-      value[0] = util.dateFormatting(new Date(maxDate.getTime() - (7 * 86400 * 1000)), 'yyyy-MM-dd')
+      value[0] = this.dateFormatting(new Date(maxDate.getTime() - (7 * 86400 * 1000)), 'yyyy-MM-dd')
     } else if (period === 'L2W') {
-      value[0] = util.dateFormatting(new Date(maxDate.getTime() - (14 * 86400 * 1000)), 'yyyy-MM-dd')
+      value[0] = this.dateFormatting(new Date(maxDate.getTime() - (14 * 86400 * 1000)), 'yyyy-MM-dd')
     } else {
       if (period === 'L1M') {
         curMonth = curMonth - 1;
@@ -243,7 +243,7 @@ export default {
    */
   getGqlId: function (gqlId) {
     if (gqlId) {
-      return (util.base64(gqlId, true).split(':')[1]).replace(/"/g, '');
+      return (this.base64(gqlId, true).split(':')[1]).replace(/"/g, '');
     }
     return null;
   },
