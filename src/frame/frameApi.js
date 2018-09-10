@@ -11,7 +11,7 @@ export default {
     if (typeof data !== 'string') {
       data = JSON.stringify(data);
     }
-    let parentHost = '';
+    var parentHost = '';
     if (location.ancestorOrigins && location.ancestorOrigins.length) {
       parentHost = location.ancestorOrigins[0];
     }
@@ -25,7 +25,7 @@ export default {
    * @param url
    */
   windowOpen: function (url) {
-    let host = process.env.HOST_HTTP;
+    var host = process.env.HOST_HTTP;
     host = host ? host : '';
     url && window.open(host + url);
   },

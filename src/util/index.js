@@ -18,12 +18,12 @@ export default {
    * @returns {{}}
    */
   getLocationBarData: function () {
-    let url = location.search, theRequest = {};
+    var url = location.search, theRequest = {};
     if (url.indexOf("?") !== -1) {
-      let str = url.substr(1);
-      let strs = str.split("&");
-      for (let i = 0; i < strs.length; i++) {
-        let item = strs[i].split("=");
+      var str = url.substr(1);
+      var strs = str.split("&");
+      for (var i = 0; i < strs.length; i++) {
+        var item = strs[i].split("=");
         theRequest[item[0]] = item[1] ? decodeURIComponent(item[1]) : null;
       }
     }
@@ -36,7 +36,7 @@ export default {
    * @returns {string}
    */
   randomId: function (len) {
-    let rdmString = '';
+    var rdmString = '';
     for (; rdmString.length < len; rdmString += Math.random().toString(36).substr(2)) ;
     return rdmString.substr(0, len)
   },
@@ -51,7 +51,7 @@ export default {
     if (!fmt) {
       fmt = 'yyyy-MM-dd hh:mm:ss'
     }
-    let o = {
+    var o = {
       'M+': date.getMonth() + 1,                 //月份
       'd+': date.getDate(),                    //日
       'h+': date.getHours(),                   //小时
@@ -62,7 +62,7 @@ export default {
     };
     if (/(y+)/.test(fmt))
       fmt = fmt.replace(RegExp.$1, ( date.getFullYear() + '').substr(4 - RegExp.$1.length));
-    for (let k in o)
+    for (var k in o)
       if (new RegExp('(' + k + ')').test(fmt))
         fmt = fmt.replace(RegExp.$1, ( RegExp.$1.length === 1) ? (o[k]) : (( '00' + o[k]).substr(('' + o[k]).length)));
     return fmt
@@ -74,7 +74,7 @@ export default {
    * @returns {boolean}
    */
   phoneValidation: function (value) {
-    let zz = /^((13[0-9])|147|(15[0-35-9])|(17[0-9])|180|183|182|(18[5-9]))[0-9]{8}$/;
+    var zz = /^((13[0-9])|147|(15[0-35-9])|(17[0-9])|180|183|182|(18[5-9]))[0-9]{8}$/;
     value = util.trim(value);
     return zz.test(value);
   },
@@ -85,7 +85,7 @@ export default {
    * @returns {boolean}
    */
   emailValidation: function (value) {
-    let zz = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;
+    var zz = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;
     value = util.trim(value);
     return zz.test(value);
   },
@@ -174,7 +174,7 @@ export default {
     } else if (typeof maxDate === 'string') {
       maxDate = new Date(maxDate);
     }
-    let value = ['', ''],
+    var value = ['', ''],
       curYear = maxDate.getFullYear(),
       curMonth = maxDate.getMonth() + 1,
       curDay = maxDate.getDate();

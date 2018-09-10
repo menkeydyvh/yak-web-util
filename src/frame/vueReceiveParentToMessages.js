@@ -3,13 +3,13 @@ import util from '../util';
 export default function (callback) {
   if (process.env.NODE_ENV === 'production') {
     window.addEventListener("message", function (event) {
-      let json = event.data;
+      var json = event.data;
       if (typeof event.data === 'string') {
         json = JSON.parse(event.data);
       }
       switch (json.type) {
         case 'localStorage': {
-          for (let key in json.data) {
+          for (var key in json.data) {
             util.lockr(key, json.data[key]);
           }
           break;
